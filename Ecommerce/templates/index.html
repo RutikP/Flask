@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+  {% block body %}
+
+  {% set fname = 'product-imgs/Fashion/' %}
+<!-- Caursoel For Fashion(Men) starts here -->
+<div class="container my-3">
+  <form method="post" action="/cart/{{fashionm.sno}}">
+    <h2 class="font-weight-light">Fashion For Men<a href="/{{params['productFm']}}/viewall" style="font-size: 25px;text-decoration: none;color: red;"> view all --></a></h2>
+    <div class="row mx-auto my-auto">
+        <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel" data-interval="1000">
+            <div class="carousel-inner w-100" role="listbox">
+                <div class="carousel-item active" data-interval="5000">
+                    <div class="col-md-3">
+                        <div class="card card-body"><a href="/view-prod/{{params['productFm']}}/{{fashionm.0.sno}}" style="text-decoration: none; color: black;">
+                            <img src="{{ url_for('static',filename=fname+fashionm.0.img) }}" class="card-img-top" name="img" height="250"alt="...">
+                            <h5 class="card-title" name="name">{{fashionm.0.name[:20]}}</h5>
+                            <p class="card-text font-weight-light" name="ships"><strong>{{fashionm.0.ships}}</strong></p></a>
+                             <button type="submit" class="btn btn-dark"><a href="/cart/{{params['productFm']}}/{{fashionm.0.sno}}" class="font-weight-light" style="text-decoration: none;color: white;">Add to Cart</a></button>
+                        </div>
+                    </div>
+                </div>
+                {% for fasm in fashionm[1:] %}
+                <div class="carousel-item" data-interval="5000">
+                    <div class="col-md-3">
+                        <div class="card card-body"><a href="/view-prod/{{params['productFm']}}/{{fasm.sno}}" style="text-decoration: none; color: black;">
+                            <img src="{{ url_for('static',filename=fname+fasm.img) }}" name="img" class="card-img-top" height="250"alt="...">
+                            <h5 class="card-title" name="name">{{fasm.name[:19]+"..."}}</h5>
+                            <p class="card-text font-weight-light" name="ships"><i><strong>{{fasm.ships}}</strong></i></p></a>
+                            <button type="submit" class="btn btn-dark"><a href="/cart/{{params['productFm']}}/{{fasm.sno}}" class="font-weight-light" style="text-decoration: none;color: white;">Add to Cart</a></button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    </form>
+    <!-- Caursoel For Fashion(Men) Ends here -->
+    {% set fname = 'product-imgs/Electronics/' %}
+<!-- Carousel for Electronics Starts here-->
+    <form method="post" action="/cart/{{electronics.sno}}">
+    <h2 class="font-weight-light">Electronics<a href="/{{params['productE']}}/viewall" style="font-size: 25px;text-decoration: none;color: red;"> view all --></a></h2>
+    <div class="row mx-auto my-auto">
+        <div id="electronicCarousel" class="carousel slide w-100" data-ride="carousel">
+            <div class="carousel-inner w-100" role="listbox">
+                <div class="carousel-item active" data-interval="5000">
+                    <div class="col-md-3">
+                        <div class="card card-body">
+                          <a href="/view-prod/{{params['productE']}}/{{electronics.0.sno}}" style="text-decoration: none; color: black;">
+                            <img src="{{ url_for('static',filename=fname+electronics.0.img) }}" class="card-img-top" name="img" height="250"alt="...">
+                            <h5 class="card-title" name="name">{{electronics.0.name[:18]+"..."}}</h5>
+                            <p class="card-text font-weight-light" name="ships"><strong>{{electronics.0.ships}}</strong></p></a>
+                             <button type="submit" class="btn btn-dark"><a href="/cart/{{params['productE']}}/{{electronics.0.sno}}" class="font-weight-light" style="text-decoration: none;color: white;">Add to Cart</a></button>
+                        </div>
+                    </div>
+                </div>
+                {% for elc in electronics[1:] %}
+                <div class="carousel-item" data-interval="5000">
+                    <div class="col-md-3">
+                        <div class="card card-body">
+                          <a href="/view-prod/{{params['productE']}}/{{elc.sno}}" style="text-decoration: none; color: black;">
+                            <img src="{{ url_for('static',filename=fname+elc.img) }}" name="img" class="card-img-top" height="250"alt="...">
+                            <h5 class="card-title" name="name">{{elc.name[:19]+"..."}}</h5>
+                            <p class="card-text font-weight-light" name="ships"><i><strong>{{elc.ships}}</strong></i></p></a>
+                            <button type="submit" class="btn btn-dark"><a href="/cart/{{params['productE']}}/{{elc.sno}}" class="font-weight-light" style="text-decoration: none;color: white;">Add to Cart</a></button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <a class="carousel-control-prev w-auto" href="#electronicCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next w-auto" href="#electronicCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    </form>
+    <!-- Carousel for Electronics Ends here-->
+</div>
+{% endblock %}
+
+    
+   
+    

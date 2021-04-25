@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+  
+  {% block body %}
+  {% if error %}
+  <div class="alert alert-warning bg-danger fade show error" role="alert" style="color: white;">
+  <strong>Error:</strong> {{ error }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+  {% endif %}
+  <div class="container">
+    <div>
+      <h1>Hello Cart!!</h1>
+      <p style="margin-right: 0px;">
+        <strong>Total {{ counter }} items</strong></p>
+    </div>
+    <hr>
+    {% for product in cart %}
+    <div class="row">
+    <div class="col"><a href="/view-cart-item/{{product.sno}}" style="text-decoration: none;color: black;">
+    <p><strong>Product Name:</strong> {{product.name}}</p>
+    <p><strong>Ratings:</strong> {{product.ratings}}</p>
+     <p><strong>Price:</strong> ₹{{product.price}}</p></a>
+    </div>
+      <div class="col">
+      <a href="/remove-cart-item/{{product.sno}}" style="text-decoration: none;"><button class="btn btn-outline-dark">Remove</button></a>
+      </div>
+  </div>
+
+      <hr>
+    
+    {% endfor %}
+  </div>
+  {% endblock %}

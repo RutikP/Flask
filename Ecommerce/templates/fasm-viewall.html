@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% set fname = 'product-imgs/Fashion/' %}
+<br>
+<div class="container">
+	<h2 class="font-weight-light">Fashion For Men</h2>
+	<form method="post" action="/cart/{{fashionm.sno}}">
+	{% for fasm in fashionm %}	
+	<div class="col-md-3 d-inline-block" style="margin-right: -10px">
+       	<div class="card card-body"><a href="/view-prod/{{params['productFm']}}/{{fasm.sno}}" style="text-decoration: none; color: black;">
+        	<img src="{{ url_for('static',filename=fname+fasm.img) }}" name="img" class="card-img-top" height="250"alt="...">
+        	<h5 class="card-title" name="name">{{fasm.name[:19]+"..."}}</h5>
+        	<!-- <p class="card-text font-weight-light" name="ratings"><strong>Rating: {{fasm.ratings}}</strong></p>
+        	<p class="card-text font-weight-light" name="price"><strong>₹{{fasm.price}}</strong></p> -->
+        	<p class="card-text font-weight-light" name="ships"><i><strong>{{fasm.ships}}</strong></i></p></a>
+        	<button type="submit" class="btn btn-dark"><a href="/cart/{{fasm.sno}}" class="font-weight-light" style="text-decoration: none;color: white;">Add to Cart</a></button>
+        	<!-- <a href="/Buy" class="btn btn-dark my-2 font-weight-light">Buy</a> -->
+        </div>
+    </div>
+    {% if loop.index==4 %}
+    <br><br>
+    {% endif %}
+    {% endfor %}
+       </form> 
+</div>
+{% endblock %}

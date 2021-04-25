@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% set fname = 'product-imgs/Fashion/' %}
+<div class="container">
+	<br>
+  <div class="row">
+    <div class="col">
+      <img src="{{ url_for('static',filename=fname+fashionm.img) }}" class="card-img-top" name="img" style="height: auto;"alt="...">
+    </div>
+    <div class="col">
+      <h2>{{fashionm.name}}</h2>
+      <h3>Ratings: {{fashionm.ratings}}</h3>
+      <h3>Price: ₹{{fashionm.price}}</h3>	
+      <h4>{{fashionm.ships}}</h4>
+      <a href="/Buy" class="btn btn-outline-success btn-lg my-2">Buy Now</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
