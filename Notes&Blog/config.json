@@ -1,0 +1,10 @@
+{
+	"params" : {
+		"local_server" : "True",
+		"local_uri" : "mysql+pymysql://root:@localhost/notes",
+		"prod_uri" : "mysql+pymysql://root:@localhost/notes",
+		"gmail-user" : "yourname",
+		"gmail-password" : "password"
+
+	}
+}

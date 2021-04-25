@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+
+    <h1>Add/Edit Notes</h1>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+        <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+        <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+        <form id="edit" action="/editNotes/{{note.sno}}" method="post" novalidate>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Title</label>
+              
+              <input type="text" class="form-control"  placeholder="Title" value="{{note.title}}" id="title" name="title" required data-validation-required-message="Please enter Title.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Subtitle</label>
+              
+              <input type="text" class="form-control"  placeholder="Subtitle" value="{{note.subtitle}}" id="subtitle" name="subtitle" required data-validation-required-message="Please enter subtitle">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Content</label>
+              
+              <textarea type="tel" class="form-control"   placeholder="Content"  rows="10" id="content" name="content" required data-validation-required-message="Please enter content.">{{note.content}}</textarea>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <br>
+          <div id="success"></div>
+          <button type="submit" class="btn btn-outline-dark" id="sendMessageButton">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
